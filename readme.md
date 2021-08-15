@@ -1,6 +1,6 @@
 # Edutkit
 
-simple web application based on duolingo.
+simple web educative application based on duolingo.
 
 <img src="demo.png">
 
