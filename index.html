@@ -1,0 +1,615 @@
+<!doctype html>
+<html lang="es">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+
+    <title>Educolor</title>
+</head>
+
+<body>
+    <div class="container py-4">
+        <div class="text-center py-2">
+            <h1>Educolor</h1>
+        </div>
+        <ul class="nav nav-pills mb-3 justify-content-center" id="pills-tab" role="tablist">
+            <li class="nav-item" role="presentation">
+                <button class="nav-link" id="pills-home-tab" data-bs-toggle="pill" data-bs-target="#pills-home"
+                    type="button" role="tab" aria-controls="pills-home" aria-selected="true">Contenido</button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link active" id="pills-profile-tab" data-bs-toggle="pill" data-bs-target="#pills-profile"
+                    type="button" role="tab" aria-controls="pills-profile" aria-selected="false">Evaluacion</button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link" id="pills-contact-tab" data-bs-toggle="pill" data-bs-target="#pills-contact"
+                    type="button" role="tab" aria-controls="pills-contact" aria-selected="false">Nosotros</button>
+            </li>
+        </ul>
+        <div class="tab-content" id="pills-tabContent">
+            <div class="tab-pane fade text-left" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
+                <h4>Qué es Sumar, Restar, Multiplicar y Dividir</h4>
+                <hr>
+                La matemática es una disciplina científica que en muchas ocasiones resulta difícil de entender por su complejidad y su dimensión abstracta. Sin embargo, las operaciones aritméticas básicas son conocidas por la inmensa mayoría de la población.
+                <br><br>Aquellas personas que desconocen las reglas fundamentales del cálculo tienen un gran problema, pues sin este conocimiento es imposible afrontar todo tipo de situaciones de la vida diaria.
+                <br>
+                <br>
+                <h4>Sumar, restar, multiplicar y dividir</h4>
+                <hr>
+                La suma consiste en unir en una única cifra dos o más números del mismo signo. Para calcular la operación entre las distintos números se utiliza el signo + y el resultado final está precedido del signo =. De esta manera, 3+2= 5 y 4+3+7= 14. Se trata de un cálculo sencillo y que la mente puede realizar de manera rápida e intuitiva. Para sumar cantidades más elevadas es posible emplear algún procedimiento de apoyo, como el ábaco o la calculadora
+                <br>
+                <br>
+                <h4>Al sumar podemos unir, agrupar o juntar cosas.</h4>
+                <hr>
+                La operación inversa a la suma es la resta y se representa con el signo -. Si en lugar de agrupar dos cantidades queremos saber la cantidad resultante al quitar un número a otro mayor, estamos haciendo una resta. Si tenemos 15 lápices y regalamos 3, nos quedaremos finalmente con 12 lápices y matemáticamente lo expresaremos del siguiente modo: 15-3=12.
+                <br><br>Multiplicar es una forma de sumar pero de manera abreviada. El signo característico de esta operación es x. Así, 3x4 es lo mismo que decir 3+3+3+3. Para ejercitar este tipo de operaciones la mayoría de escolares de todo el mundo se familiarizan con las famosas tablas de multiplicar.
+                <br><br>Al igual que la resta es la operación inversa a la suma, la división es la operación inversa a la división. En otras palabras, dividir equivale a repartir o distribuir algo de manera equitativa.
+                <br><br>El signo “:” es el característico de esta operación. Si tengo 6 caramelos y los quiero repartir entre 3 amigos, el resultado final será 2 (6:3= 2).
+                <br>
+                <br>
+                
+                <h4>Fuentes:</h4>
+                <hr>
+                Definición de Sumar, Restar, Multiplicar y Dividir. (s. f.). Definición ABC. Recuperado 14 de agosto de 2021, de https://www.definicionabc.com/general/sumar-restar-multiplicar-y-dividir.php
+            </div>
+            <div class="tab-pane fade active show" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
+                <div id="container-felicidades" class="p-5 text-center d-none">
+                    <div>
+                        <h1>¡FELICIDADES!</h1>
+                        <h3>LOGRASTE EL 100%</h3>
+                        <br>
+                        <button class="btn btn-primary" onclick="location.reload();">Volver a intentarlo</button>
+                    </div>
+                </div>
+                <div id="container-tiempo" class="p-5 text-center d-none">
+                    <div>
+                        <h1>TU TIEMPO SE ACABO</h1>
+                        <h3>TU PROGRESO FUE DE <span id="porcentaje-tiempo"></span>%</h3>
+                        <br>
+                        <button class="btn btn-primary" onclick="location.reload();">Volver a intentarlo</button>
+                    </div>
+                </div>
+                <div id="container-evaluacion">
+                    <div>
+                        <div class="h5">Tiempo restante <span id="time">10:00</span></div>
+                        <div class="h5">Mi Progreso:</div>
+                        <div class="progress">
+                            <div id="progress-bar" class="progress-bar" role="progressbar" aria-valuemin="0" aria-valuemax="100"></div>
+                        </div>
+                        <!-- <hr> -->
+                    </div>
+                    <div class="py-2 text-center">
+                        <!-- <p>Progreso:</p> -->
+                        <h1 id="text-pregunta" class="py-2">1+1=?</h1>
+                        <!-- <p>seleccione la alternativa correcta</p> -->
+                        <!-- <hr> -->
+                        <div class="row py-4">
+                            <div class="col-12 col-sm-4 py-1">
+                                <div class="card" id="respuesta-1">
+                                    <!-- <img src="..." class="card-img-top" alt="..."> -->
+                                    
+                                  </div>
+                                <!-- <button type="button" class="btn btn-primary btn-lg">Seleccionar</button> -->
+                            </div>
+                            <div class="col-12 col-sm-4 py-1">
+                                <div class="card" id="respuesta-2">
+                                  </div>
+                                <!-- <h1>2</h1> -->
+                                <!-- <button type="button" class="btn btn-primary btn-lg">Seleccionar</button> -->
+                            </div>
+                            <div class="col-12 col-sm-4 py-1">
+                                <div class="card" id="respuesta-3">
+                                  </div>
+                                <!-- <h1>10</h1> -->
+                                <!-- <button type="button" class="btn btn-primary btn-lg">Seleccionar</button> -->
+                            </div>
+                        </div>
+    
+                        <button id="btn-continuar" onclick="app.lanzarPregunta()" type="button" class="btn btn-primary btn-lg d-none">Continuar</button>
+    
+                    </div>
+                </div>
+                
+            </div>
+            <div class="tab-pane fade text-center" id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab">
+            <p class="text-secondary">Esta plataforma fue diseñada para la segunda semana del curso de introduccion a la programacion.</p>
+
+                <h3>Esta pagina fue desarrollada por:</h3>
+                Felipe Eduardo Butron Platero - felipe.butron@hotmail.com<br>
+                Jhonnattan Mitchell Rivera Rivera - jhonnattanriverarivera@gmail.com
+            </div>
+        </div>
+    </div>
+    <!-- <h1>Hello, world!</h1> -->
+
+    <!-- Optional JavaScript; choose one of the two! -->
+
+    <!-- Option 1: Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj"
+        crossorigin="anonymous"></script>
+
+    <!-- Option 2: Separate Popper and Bootstrap JS -->
+    <!--
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js" integrity="sha384-eMNCOe7tC1doHpGoWe/6oMVemdAVTMs2xqW4mwXrXsW0L84Iytr2wi5v2QjrP/xp" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.min.js" integrity="sha384-cn7l7gDp0eyniUwwAZgrzD06kc/tftFf19TOAs2zVinnD/C7E91j9yyk5//jjpt/" crossorigin="anonymous"></script>
+    -->
+</body>
+
+<script>
+    // alert(1);
+    var arrEvaluacion = [
+    {
+            id: 1,
+            text: "1+3=?",
+            arrAlternativas: [
+            {
+                    text: "3",
+                    isCorrect: false,
+                },
+                {
+                    text: "5",
+                    isCorrect: false,
+                },
+                {
+                    text: "4",
+                    isCorrect: true,
+                }
+            ]
+        },
+        {
+            id: 2,
+            text: "1 x 4=?",
+            arrAlternativas: [
+            {
+                    text: "5",
+                    isCorrect: false,
+                },
+                {
+                    text: "4",
+                    isCorrect: true,
+                },
+                {
+                    text: "1",
+                    isCorrect: false,
+                }
+            ]
+        },
+         {
+            id: 3,
+            text: "2 x 8=?",
+            arrAlternativas: [
+            {
+                    text: "16",
+                    isCorrect: true,
+                },
+                {
+                    text: "20",
+                    isCorrect: false,
+                },
+                {
+                    text: "8",
+                    isCorrect: false,
+                }
+            ]
+        },
+         {
+            id: 4,
+            text: "10 - 5=?",
+            arrAlternativas: [
+            {
+                    text: "7",
+                    isCorrect: false,
+                },
+                {
+                    text: "4",
+                    isCorrect: false,
+                },
+                {
+                    text: "5",
+                    isCorrect: true,
+                }
+            ]
+        },
+         {
+            id: 5,
+            text: "3 + 7=?",
+            arrAlternativas: [
+            {
+                    text: "12",
+                    isCorrect: false,
+                },
+                {
+                    text: "10",
+                    isCorrect: true,
+                },
+                {
+                    text: "15",
+                    isCorrect: false,
+                }
+            ]
+        },
+         {
+            id: 6,
+            text: "5 x 4=?",
+            arrAlternativas: [
+            {
+                    text: "20",
+                    isCorrect: true,
+                },
+                {
+                    text: "15",
+                    isCorrect: false,
+                },
+                {
+                    text: "25",
+                    isCorrect: false,
+                }
+            ]
+        },
+         {
+            id: 7,
+            text: "1 x 4=?",
+            arrAlternativas: [
+            {
+                    text: "5",
+                    isCorrect: false,
+                },
+                {
+                    text: "4",
+                    isCorrect: false,
+                },
+                {
+                    text: "1",
+                    isCorrect: true,
+                }
+            ]
+        },
+         {
+            id: 8,
+            text: "6 + 4=?",
+            arrAlternativas: [
+            {
+                    text: "10",
+                    isCorrect: true,
+                },
+                {
+                    text: "14",
+                    isCorrect: false,
+                },
+                {
+                    text: "7",
+                    isCorrect: false,
+                }
+            ]
+        },
+         {
+            id: 9,
+            text: "12 - 6=?",
+            arrAlternativas: [
+            {
+                    text: "10",
+                    isCorrect: false,
+                },
+                {
+                    text: "6",
+                    isCorrect: true,
+                },
+                {
+                    text: "4",
+                    isCorrect: false,
+                }
+            ]
+        },
+         {
+            id: 10,
+            text: "3 - 3=?",
+            arrAlternativas: [
+            {
+                    text: "6",
+                    isCorrect: false,
+                },
+                {
+                    text: "5",
+                    isCorrect: false,
+                },
+                {
+                    text: "0",
+                    isCorrect: true,
+                }
+            ]
+        },
+         {
+            id: 11,
+            text: "22 : 2=?",
+            arrAlternativas: [
+            {
+                    text: "11",
+                    isCorrect: true,
+                },
+                {
+                    text: "10",
+                    isCorrect: false,
+                },
+                {
+                    text: "12",
+                    isCorrect: false,
+                }
+            ]
+        },
+         {
+            id: 12,
+            text: "15 : 3=?",
+            arrAlternativas: [
+            {
+                    text: "3",
+                    isCorrect: false,
+                },
+                {
+                    text: "5",
+                    isCorrect: true,
+                },
+                {
+                    text: "1",
+                    isCorrect: false,
+                }
+            ]
+        },
+         {
+            id: 13,
+            text: "4 : 1=?",
+            arrAlternativas: [
+            {
+                    text: "3",
+                    isCorrect: false,
+                },
+                {
+                    text: "1",
+                    isCorrect: false,
+                },
+                {
+                    text: "4",
+                    isCorrect: true,
+                }
+            ]
+        },
+         {
+            id: 14,
+            text: "13 + 27=?",
+            arrAlternativas: [
+            {
+                    text: "40",
+                    isCorrect: true,
+                },
+                {
+                    text: "39",
+                    isCorrect: false,
+                },
+                {
+                    text: "41",
+                    isCorrect: false,
+                }
+            ]
+        },
+         {
+            id: 15,
+            text: "68 - 18=?",
+            arrAlternativas: [
+            {
+                    text: "64",
+                    isCorrect: false,
+                },
+                {
+                    text: "50",
+                    isCorrect: true,
+                },
+                {
+                    text: "60",
+                    isCorrect: false,
+                }
+            ]
+        },
+         {
+            id: 16,
+            text: "3 x 9=?",
+            arrAlternativas: [
+            {
+                    text: "12",
+                    isCorrect: false,
+                },
+                {
+                    text: "25",
+                    isCorrect: false,
+                },
+                {
+                    text: "27",
+                    isCorrect: true,
+                }
+            ]
+        },
+         {
+            id: 17,
+            text: "3 + 4 + 3=?",
+            arrAlternativas: [
+            {
+                    text: "7",
+                    isCorrect: false,
+                },
+                {
+                    text: "10",
+                    isCorrect: true,
+                },
+                {
+                    text: "11",
+                    isCorrect: false,
+                }
+            ]
+        },
+         {
+            id: 18,
+            text: "10 + 11 + 5=?",
+            arrAlternativas: [
+            {
+                    text: "26",
+                    isCorrect: true,
+                },
+                {
+                    text: "21",
+                    isCorrect: false,
+                },
+                {
+                    text: "29",
+                    isCorrect: false,
+                }
+            ]
+        },
+         {
+            id: 19,
+            text: "25 - 5 - 10=?",
+            arrAlternativas: [
+            {
+                    text: "15",
+                    isCorrect: false,
+                },
+                {
+                    text: "20",
+                    isCorrect: false,
+                },
+                {
+                    text: "10",
+                    isCorrect: true,
+                }
+            ]
+        },
+         {
+            id: 20,
+            text: "7 + 7 * 1=?",
+            arrAlternativas: [
+            {
+                    text: "15",
+                    isCorrect: false,
+                },
+                {
+                    text: "19",
+                    isCorrect: true,
+                },
+                {
+                    text: "14",
+                    isCorrect: false,
+                }
+            ]
+        }
+    ];
+
+    var app = {
+        intProgress : 0,
+        updateProgresBar: ( )=>{
+            document.getElementById("progress-bar").setAttribute("aria-valuenow",app.intProgress)
+            document.getElementById("progress-bar").style.width = app.intProgress+"%";
+            document.getElementById("progress-bar").innerHTML = app.intProgress+"%";
+        },
+        evaluacionFinalizada: () =>{
+            document.getElementById("container-felicidades").classList.remove("d-none")
+            document.getElementById("container-evaluacion").classList.add("d-none")
+        },
+        evaluacionTiempo: ()=>{
+            document.getElementById("container-tiempo").classList.remove("d-none")
+            document.getElementById("container-evaluacion").classList.add("d-none")
+            document.getElementById("porcentaje-tiempo").innerHTML = app.intProgress;
+
+            
+        },
+        addProgresbar : ( intvalue )=>{
+
+            if( app.intProgress >=0 && intvalue > 0) {
+                app.intProgress = app.intProgress + intvalue;
+
+            }
+            if( app.intProgress >=10 && intvalue < 0) {
+                app.intProgress = app.intProgress + intvalue;
+
+            }
+
+            app.updateProgresBar()
+
+            if( app.intProgress == 100){
+                app.evaluacionFinalizada()
+            }
+        },
+        validarPregunta: (isCorrect="false", intPosition)=>{
+
+            document.getElementById("btn-respuesta-1").setAttribute("disabled",true)
+            document.getElementById("btn-respuesta-2").setAttribute("disabled",true)
+            document.getElementById("btn-respuesta-3").setAttribute("disabled",true)
+            document.getElementById("btn-respuesta-"+intPosition).classList.remove("btn-primary")
+            document.getElementById("texto-"+intPosition).classList.add("text-white")
+            if (isCorrect == "true"){
+                document.getElementById("btn-respuesta-"+intPosition).classList.add("btn-success")
+                document.getElementById("card-respuesta-"+intPosition).classList.add("bg-success");
+                document.getElementById("btn-respuesta-"+intPosition).innerHTML = "Correcto!!"
+                app.addProgresbar(10)
+            } else {
+                document.getElementById("btn-respuesta-"+intPosition).classList.add("btn-danger")
+                document.getElementById("card-respuesta-"+intPosition).classList.add("bg-danger");
+                document.getElementById("btn-respuesta-"+intPosition).innerHTML = "Incorrecto"
+                app.addProgresbar(-10)
+                
+            }
+
+            document.getElementById("btn-continuar").classList.remove("d-none")
+        },
+        lanzarPregunta: ()=>{
+            let intRandom = Math.round(Math.random()*((arrEvaluacion.length-1)-0)+0)
+            let pregunta = arrEvaluacion[intRandom];
+            document.getElementById("text-pregunta").innerHTML = pregunta.text
+
+            pregunta.arrAlternativas.forEach((element,index) => {
+                document.getElementById("respuesta-"+(index+1)).innerHTML = `
+                <div id="card-respuesta-${(index+1)}" class="card-body">
+                    <h1 id="texto-${(index+1)}" class="">${element.text}</h1>
+                    <button id="btn-respuesta-${(index+1)}" onclick="app.validarPregunta('${element.isCorrect}',${(index+1)})"href="#" isCorrect="${element.isCorrect}"class="btn  btn-lg">Seleccionar</button>
+                </div>`
+            });
+        }
+    };
+    app.addProgresbar(0)
+    app.lanzarPregunta();
+    var intProgreso = 0
+
+
+    function startTimer(duration, display) {
+    var timer = duration, minutes, seconds;
+    setInterval(function () {
+        minutes = parseInt(timer / 60, 10);
+        seconds = parseInt(timer % 60, 10);
+
+        minutes = minutes < 10 ? "0" + minutes : minutes;
+        seconds = seconds < 10 ? "0" + seconds : seconds;
+
+        display.textContent = minutes + ":" + seconds;
+
+        if (--timer < 0) {
+            app.evaluacionTiempo()
+            timer = duration;
+        }
+
+        // if (timer == -1){
+        // }
+    }, 1000);
+}
+
+window.onload = function () {
+    var fiveMinutes = 60*10,
+        display = document.querySelector('#time');
+    startTimer(fiveMinutes, display);
+};
+
+
+</script>
+</html>
